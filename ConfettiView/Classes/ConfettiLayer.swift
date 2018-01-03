@@ -97,11 +97,6 @@ class ConfettiLayer {
     }
     
     func updateCurrentState(_ accelerometerData:CMAccelerometerData?)  {
-        //Calculating the new velocity of the items according to the tilt of the device
-        if let accelerometerData = accelerometerData {
-            self.totalTilt = -accelerometerData.acceleration.y
-            self.calculatedVelocity = CGPoint(x: self.baseVelocity.x + CGFloat(accelerometerData.acceleration.x * 200 / self.depth), y:  CGFloat(-accelerometerData.acceleration.y*300 / self.depth))
-        }
         self.itemBehavior.items.forEach{ item in
             
             //Changing the item's speed
